@@ -6,12 +6,7 @@ use axum::{
     routing::get,
     Router,
 };
-use graphql::schema::{build_schema, AppSchema};
-
-mod graphql;
-// NOTE: see https://github.com/Brendonovich/prisma-client-rust/releases/tag/0.6.8
-#[allow(warnings, unused)]
-mod prisma;
+use backend::graphql::schema::{build_schema, AppSchema};
 
 async fn graphql_handler(schema: Extension<AppSchema>, req: GraphQLRequest) -> GraphQLResponse {
     schema.execute(req.into_inner()).await.into()
@@ -22,9 +17,6 @@ async fn graphql_playground() -> impl IntoResponse {
         "/api/graphql",
     )))
 }
-
-// Note: This template uses Axum, but the bulk of the setup is for async_graphql. You should be able
-// to easily swap out Axum for your preferred framework (e.g. Rocket, actix, etc).
 
 #[tokio::main]
 async fn main() {
@@ -39,8 +31,6 @@ async fn main() {
         )
         .layer(Extension(schema));
 
-    // macos Monterey i hate u so much for causing me so much headache to figure out
-    // port 5000 is now taken??
     println!("Playground: http://localhost:8080/api/graphql");
 
     axum::Server::bind(&"0.0.0.0:8080".parse().unwrap())

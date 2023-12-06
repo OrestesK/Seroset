@@ -6,7 +6,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let user = client
         .user()
-        .create(String::from("username"), String::from("Webrc"), vec![])
+        .create(
+            String::from("test_username"),
+            String::from("test_webrc"),
+            vec![],
+        )
         .exec()
         .await?;
 

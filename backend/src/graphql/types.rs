@@ -1,10 +1,5 @@
-use async_graphql::{ComplexObject, SimpleObject};
-
 use crate::prisma::user;
-
-// Note: ideally, I would not need this file at all. I would just use the generated
-// struct definitions from the prisma client, however with async-graphql I need
-// to derive some traits to make it work.
+use async_graphql::{ComplexObject, SimpleObject};
 
 #[derive(SimpleObject)]
 #[graphql(complex)]

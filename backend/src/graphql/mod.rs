@@ -1,5 +1,5 @@
 mod mutation;
 mod query;
 
-pub(crate) mod schema;
-pub(crate) mod types;
+pub mod schema;
+pub mod types;

@@ -1,0 +1,15 @@
+generator client {
+  provider = "cargo prisma"
+  output   = "../src/prisma.rs"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_URL")
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  username String @unique
+  webrc    String
+}

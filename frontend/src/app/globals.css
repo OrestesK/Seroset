@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .test {
+    @apply left-0 justify-center bg-primary hover:bg-secondary transition-all;
+  }
+}

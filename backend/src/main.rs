@@ -23,8 +23,6 @@ async fn main() {
     let schema = build_schema().await;
 
     let app = Router::new()
-        // I prefer to prefix my graphql endpoint with /api, but use whatever you like.
-        // just make sure it matches the path in graphql_playground()
         .route(
             "/api/graphql",
             get(graphql_playground).post(graphql_handler),

@@ -1,14 +1,16 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  content: [
-    "./src/pages/**/*.ts",
-    "./src/components/**/*.ts",
-    "./src/app/**/*.ts",
-  ],
+  mode: "jit",
+  content: ["./src/app/**/*.{ts,tsx}"],
+  purge: ["./src/app/**/*.{ts,tsx}"],
   theme: {
-    extend: {},
+    exptend: {
+      colors: {
+        primary: "#262626",
+        secondary: "#505050",
+      },
+    },
   },
-  plugins: [],
 };
 export default config;
